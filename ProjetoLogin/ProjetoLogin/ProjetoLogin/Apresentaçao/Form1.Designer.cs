@@ -37,6 +37,7 @@
             this.btnentrar = new System.Windows.Forms.Button();
             this.btnsair = new System.Windows.Forms.Button();
             this.btncad = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             // 
             // btnsair
             // 
-            this.btnsair.Location = new System.Drawing.Point(318, 154);
+            this.btnsair.Location = new System.Drawing.Point(259, 154);
             this.btnsair.Name = "btnsair";
             this.btnsair.Size = new System.Drawing.Size(65, 23);
             this.btnsair.TabIndex = 7;
@@ -114,11 +115,21 @@
             this.btncad.UseVisualStyleBackColor = false;
             this.btncad.Click += new System.EventHandler(this.btncad_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(330, 154);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 269);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btncad);
             this.Controls.Add(this.btnsair);
             this.Controls.Add(this.btnentrar);
@@ -146,6 +157,7 @@
         private System.Windows.Forms.Button btnentrar;
         private System.Windows.Forms.Button btnsair;
         private System.Windows.Forms.Button btncad;
+        private System.Windows.Forms.Button button1;
     }
 }
 

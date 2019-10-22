@@ -8,6 +8,6 @@ namespace ProjetoLogin.Modelo
 {
    public class Controle
     {
-
+        
     }
 }
