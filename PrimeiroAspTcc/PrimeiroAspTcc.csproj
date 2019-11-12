@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.7\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -133,11 +139,37 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ClienteServicosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoServicosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Migrations\201910230120464_InitialCreate.cs" />
+    <Compile Include="Migrations\201910230120464_InitialCreate.Designer.cs">
+      <DependentUpon>201910230120464_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911052331057_TabelaClienteServico.cs" />
+    <Compile Include="Migrations\201911052331057_TabelaClienteServico.Designer.cs">
+      <DependentUpon>201911052331057_TabelaClienteServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911052336598_clienteServicoAdd.cs" />
+    <Compile Include="Migrations\201911052336598_clienteServicoAdd.Designer.cs">
+      <DependentUpon>201911052336598_clienteServicoAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911052353204_clienteServicoArrumando.cs" />
+    <Compile Include="Migrations\201911052353204_clienteServicoArrumando.Designer.cs">
+      <DependentUpon>201911052353204_clienteServicoArrumando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ClienteServico.cs" />
+    <Compile Include="Models\Cookie.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\GenderEnum.cs" />
+    <Compile Include="Data\PrimeiroAspTccContext.cs" />
+    <Compile Include="Models\TipoServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,15 +186,32 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\banner-1036483_1920.jpg" />
     <Content Include="img\bender.jpg" />
     <Content Include="img\Bill.jpg" />
+    <Content Include="img\building-1080592_1920.jpg" />
+    <Content Include="img\businessman-2108029_1920.jpg" />
+    <Content Include="img\ca2.png" />
+    <Content Include="img\calculadora.jpg" />
+    <Content Include="img\e1.jpg" />
+    <Content Include="img\electrician-1080554_1920.jpg" />
     <Content Include="img\eq2.jpg" />
+    <Content Include="img\fastfood_worker.png" />
+    <Content Include="img\hand.jpg" />
+    <Content Include="img\hora.jpg" />
     <Content Include="img\Ideia3.jpg" />
+    <Content Include="img\jo1.jpg" />
     <Content Include="img\jo2.jpg" />
     <Content Include="img\ligueja.jpg" />
+    <Content Include="img\Metropole1.jpg" />
+    <Content Include="img\monitor.jpg" />
     <Content Include="img\mt.jpg" />
+    <Content Include="img\paperwork.jpg" />
     <Content Include="img\pista.jpg" />
     <Content Include="img\sk.jpg" />
+    <Content Include="img\time1.jpg" />
+    <Content Include="img\trab2.jpg" />
+    <Content Include="img\trab3.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -219,7 +268,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -234,6 +282,22 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\Login.cshtml" />
+    <Content Include="Views\Clientes\BoasVindas.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\TipoServicos\Create.cshtml" />
+    <Content Include="Views\TipoServicos\Delete.cshtml" />
+    <Content Include="Views\TipoServicos\Details.cshtml" />
+    <Content Include="Views\TipoServicos\Edit.cshtml" />
+    <Content Include="Views\TipoServicos\Index.cshtml" />
+    <Content Include="Views\ClienteServicos\Create.cshtml" />
+    <Content Include="Views\ClienteServicos\Delete.cshtml" />
+    <Content Include="Views\ClienteServicos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,6 +312,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910230120464_InitialCreate.resx">
+      <DependentUpon>201910230120464_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911052331057_TabelaClienteServico.resx">
+      <DependentUpon>201911052331057_TabelaClienteServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911052336598_clienteServicoAdd.resx">
+      <DependentUpon>201911052336598_clienteServicoAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911052353204_clienteServicoArrumando.resx">
+      <DependentUpon>201911052353204_clienteServicoArrumando.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,191 @@
+﻿@model PrimeiroAspTcc.Models.Cliente
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav class="navbar navbar-expand-md " color-on-scroll="900" style="background-color:black;">
+    <div class="container">
+        <div class="navbar-translate">
+           
+            <a class="navbar-brand" href="#" rel="tooltip" title="Desenvolvido para TCC ETEC" data-placement="bottom" target="_blank"></a>
+                <h2 style="font-family:'Bauhaus 93'; color:darkgoldenrod;"> Bem vindo a <strong>UbiWork</strong> <i class="fab fa-black-tie"></i></h2>
+            
+              <h2 style="font-family:'Bauhaus 93';">Crie seu cadastro <strong>Aqui</strong></h2>
+            
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+                        
+                        <p>Reclamações ou <strong>Duvidas sobre como se cadastrar?</strong></p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="/home/" class="nav-link">
+                        <i class="now-ui-icons design_app"></i>
+                        <p>Voltar</p>
+                    </a>
+                   
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  rel="tooltip" data-placement="bottom" href="/clientes/login"> 
+                    
+                    <p style="color:yellow;outline-color:aqua; ">Já sou cadastrado</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <p class="d-lg-none d-xl-none">Twitter</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                        <i class="fab fa-facebook-square"></i>
+                        <p class="d-lg-none d-xl-none">Facebook</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <p class="d-lg-none d-xl-none">Instagram</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<style>
+    .form-group {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="container-fluid" style="background-image:url(/img/banner-1036483_1920.jpg) ">
+
+
+    <div class="form-row">
+        <div class="form-group  col-md-6">
+            <i class="fas fa-address-card"></i>
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.Data_nasc, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            @Html.EditorFor(model => model.Data_nasc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Data_nasc, "", new { @class = "text-danger" })
+        </div>
+
+        <div class=" form-group col-md-6">
+            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-row ">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Rg, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Rg, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Rg, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EnumDropDownListFor(model => model.Sexo, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+    <div class="container" style="background-image:url(/img/time1.jpg);">
+        <div class=" form-group col-md-06" style="color:black; border-color:black;">
+            @Html.LabelFor(model => model.Ender_resi, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Ender_resi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Ender_resi, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-06">
+            @Html.LabelFor(model => model.End_comercial, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.End_comercial, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.End_comercial, "", new { @class = "text-danger" })
+        <br />
+
+            </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Criar" class="btn btn-success" />
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <br />
+
+
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

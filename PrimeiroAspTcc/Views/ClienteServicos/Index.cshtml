@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PrimeiroAspTcc.Models.ClienteServico>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="font-family:'Bauhaus 93';">UbiWork <i class="fab fa-black-tie"></i></h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container-fluid" style=" background-color:aqua; width:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoServico.Descricao)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoServico.Descricao)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ClienteServicoId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ClienteServicoId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ClienteServicoId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,157 @@
+﻿@model PrimeiroAspTcc.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h2 style="font-family:'Bauhaus 93'; color:darkgoldenrod;">Descrição de Clientes <i class="fab fa-black-tie"></i></h2><h1> <strong style="color:yellow;">UbiWork</strong></h1>
+</div>
+<div class="container">
+   
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data_nasc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data_nasc)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cpf)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Rg)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Rg)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sexo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ender_resi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ender_resi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.End_comercial)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.End_comercial)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cel)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Login)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Login)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Senha)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Senha)
+                </dd>
+
+            </dl>
+
+        </div>
+        <div class="col-md-8">
+
+
+            @using (Html.BeginForm())
+            {<div class="row">
+    <input type="hidden" id="id" name="id" value="@Model.Id" />
+    <input type="submit" value="Criar" class="btn btn-success" />
+    <div class="col-md-8">
+        <h2 style="font-family:'Bauhaus 93'; color:darkgoldenrod;"> Tipos de Serviços</h2>
+        <div class="col-md-4">
+            @Html.DropDownList("tiposervicoid", new SelectList(ViewBag.listaTipo, "Id", "Descricao"))
+        </div>
+        
+    </div>
+</div>
+            }
+                <table class="table">
+                    <tr>
+                        <th>
+                            Descrição
+                        </th>
+                        <th>
+                            Ativo
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.Servicos)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoServico.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoServico.Ativo)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ClienteServicoId })
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
